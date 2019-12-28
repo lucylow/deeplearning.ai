@@ -1,5 +1,4 @@
-# Notes for deeplearning.ai
-Andrew Ng's deeplearning.ai course notes
+# Course Notes for deeplearning.ai
 
 **Course Projects**
 * Car Detection: using YOLOv2, one of the most effective object detection algorithms, to detect cars and other objects.
