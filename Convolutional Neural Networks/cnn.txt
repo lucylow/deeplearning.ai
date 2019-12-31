@@ -31,19 +31,6 @@ Week 1
             ▪ training a small, middle, vs large Nns 
             ▪ better computation and algorithmic innovations 
                 • sigmoid switched to RELU functions made the gradient descent function run faster
-	
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 Week 2 Basics of NN programming 
