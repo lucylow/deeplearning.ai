@@ -1,0 +1,193 @@
+
+Deeplearning.ai Specialization
+
+Section 1: NN and DL building blocks 
+
+Week 1
+    • Creating an AI-powered society 
+    • Deep learning skill 
+    • RECOGNIZE CATS USING DEEP LEARNING OMG – BUILD A CAT RECOGNIZER
+        ◦ Smoothie the Cat Recognizer  
+    • machine learning 
+    • Supervised learning with NN 
+        ◦ input x output y application
+        ◦ ads – predict whether you will click on an ad [LUCRATIVE ] - show people ads that they are willing to click on 0/1
+        ◦ What will be x what will be y 
+    • Structured data vs unstructured data 
+        ◦ structured data
+            ▪ features ex size, number of bedrooms, housing prices, user age, user click ads, ad id number
+            ▪ features have well defined meaning 
+            ▪ with databases of data [housing prices or user will click on ad in a data table]
+        ◦ unstructured data
+            ▪ features ex pixels in an image or text in a sentence
+            ▪ [images, audio]
+            ▪ harder for computers to make sense of unstructured data.
+    • Why is deep learning so hype the past years 
+        ◦ x vs y 
+        ◦ amount of data vs performance 
+        ◦ log graph 
+        ◦ number of LABELLED data (x,y) has increased due to digitization society 
+        ◦ improving scale 
+            ▪ training a small, middle, vs large Nns 
+            ▪ better computation and algorithmic innovations 
+                • sigmoid switched to RELU functions made the gradient descent function run faster
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Week 2 Basics of NN programming 
+
+    • Binary Classification 
+    • Given M training examples
+        ◦ for ___ in M training examples:
+            ▪ do something in loop 
+    • forward backward propogration steps 
+    • logistic regression 
+        ◦ algo for binary classification 
+    • EX: Binary Classification problem with CATS (1 vs 0 for cat vs non-cat) 
+        ◦ logistic regression 
+        ◦ images stored as 3 digits matrixes xyz red green blue 
+            ▪ for 64 pix image --? 64 x 64 x 3 = 12288 
+        ◦ image --> feature vector 
+        ◦ x input to y label 
+        ◦ x = input matrix 
+        ◦ goal:
+            ▪ given x input matrix 12288 imgae
+                • x = n by m matrix where we have m training example and n is the dimension of input vector 
+                • x.shape = (n_x, m) matrix 
+            ▪ find y label 0 1 cat or non cat 
+                • y = column vector 
+                • y.shape = (1,m) matrix 
+        ◦ logistic regression model
+            ▪ an be viewed as a small neural network 
+            ▪ given x we want y hat where y hat = What are the CHANCES that we have a cat y = 1 given x 
+            ▪ parameters 
+            ▪ output?
+                • Linear function y = mx+b (linear regression).. this is bad for we a binary classification problem 
+                • APPLY THE SIGMOID FUNCTION (1/1 + e^-x)TO THE LINEAR FUNCTION 
+                • why? Because binary ( 0 or 1) applied to linear regression 
+        ◦ Logistic regression cost function 
+            ▪ define w and b parameters 
+            ▪ loss error function 
+                • we want small as possible 
+                • square error function? Not for logistic regression because non-convex optimization so gradient decent won’t find global maxima 
+                • we want a convex optimization 
+                • L(y hat, y) = - (y log y hat + (1 – y)log(1-y hat))
+            ▪ cost function 
+                • J(w,b) = average of loss function  applied to each training set 
+        ◦ Gradient decent 
+            ▪ takes steps iteratively downhill in the directon of the downwards slope until you converge to the global optimum 
+            ▪ derivative = slope of a function = rate of change = height minus width 
+              1we want to find w, b parameters that minimize J(w,b) 
+            ▪ learning rate = alpha = how big of a step we take 
+            ▪ w = w – aplha * dw (where dw == derivative term)
+
+
+Calculus and Vector Calc Review 
+    • Intuition
+    • 
+        ◦ derivatives == slope == height/width of line of best fit slope
+        ◦ ex1: f(a) = 3a has constant slope 3
+        ◦ ex2: f(a)= a^2 has varying slope 2a when you take the derivative 
+        ◦ ex3: f(a) = log(a) or ln(a) has slope 1/a 
+
+Computation graph 
+    • compute J(a,b,c) = 3(a+bc), cost function
+    • steps
+        ◦ compute u = bc first
+        ◦ v = a + u 
+        ◦ return J = 3v
+    • left to right OR right to left computations 
+    • computing derivatives 
+        ◦ find dJ/dv 
+        ◦ find dJ/da , use chain rule dJ/du * du/da need to get product of the changes
+        ◦ backerror propagation 
+
+Ex Deriving gradient decent with Logistic Regression + computation graph 
+    • review logistic regression 
+        ◦ z = w^Tx + b 
+        ◦ y hat = a = sigma(z) where z is above
+        ◦ L(a,y) = - (ylog(a) + (1-y)log(1-a)) is the loss function 
+    • computation graph
+        ◦ x1 w1 x2 w2 b 
+        ◦ z = w1x1 + w2x2 + b 
+            ▪ derivative dz = = dL/dz = dL/da * da/dz = (- (y.a) + (1-y)/(1-a) * (a(1-a)) = simplifies to  a – y 
+        ◦ y hat = a = sigma(z) =
+            ▪ derivative  - (y.a) + (1-y)/(1-a)
+        ◦ L(a,y)
+    • what is logistic regression?
+        ◦ Modify w1, w2, and b parameters to REDUCE L(a,y) loss function
+            ▪ w1 = w1 – learning rate * dw1
+            ▪ w2 = w2 – learning rate * dw2
+            ▪ b = b – learning rate * db
+      
+    • logistic regression on m number of examples 
+        ◦ above was for one training set, what if we have multiple training sets (m) ?
+        ◦ use index notation + index series 
+        ◦ J(w,b) = 1/m sum from i=1 to m of L(a^i, y^i)
+        ◦ a^i = y hat i = sigma (z i) = sigma(w^T xi + b) 
+        ◦ Code: need to write two for loops
+            ▪ over m training eamples 
+                • for i in 1 to m:
+                    ◦ do....
+            ▪ over the features (assume n=2 two features)
+                • dw1, dw2, ... to dwn 
+        ◦ Code: vectorization techniques 
+            ▪ get rid of for loops 
+                • FOR LOOPS SUCK THEY ARE SO SLOW IN EFFICIENCY 
+                • in deep learning, we train on large datasets 
+                • we want code to run quickly and efficently 
+            ▪ vectorization 
+                • ex: z = w^Tx  + b 
+                • w^T* x.... how do we do this with code? :o 
+                • non vectors 
+                    ◦ z = 0 
+                    ◦ for i in range(n – x): 	
+                        ▪ z += w[i]* x[i]
+                    ◦ z += b 
+                • vectors
+                    ◦ python numpy jupyter notebook 
+                    ◦ import numpy as np 
+                    ◦ z = np.dot(w,x) # computes w transpose x 
+                • GPU and CPU Both have parallelism 
+                    ◦ use builtin functions like np.dot(input) allows numpy to use parallelism i.e. faster more efficient 
+
+Neural Network programming guidelines
+    • avoid explicit for loops
+    • ex1: u vector = matrix A * vector v [matrix multiplication]
+        ◦ two for loops with no vectorization 
+            ▪ u_i = summation A_ij * v_j
+            ▪ u = np.zeros()
+            ▪ for i .. 
+                • for j.. 
+                    ◦ u[i] += A[i][j]* v[j]
+        ◦ use numpy vectorization of above 
+            ▪ u = np.dot(A,v)
+            ▪ no for loops and way faster 
+    • ex: 2 apply e^x function to every element of a matrix vectorization
+        ◦ use for loop 
+            ▪ u = np.zeros(n,1)
+            ▪ for i in range(n):
+                • u[i] = math.exp(v[i])
+        ◦ use numpy vectorization of above 
+            ▪ import numpy as np 
+            ▪ u = np.exp(v)
+
+
+Vectorizing logistic regression 
+    • compute the zi = wTxi + b solutions for every m training example to get 
+        ◦ a1, a2, a3 
+    • stacking the small x’s of i to X
+    • stacking the lower case a’s to a A 
+    • broodasting 
