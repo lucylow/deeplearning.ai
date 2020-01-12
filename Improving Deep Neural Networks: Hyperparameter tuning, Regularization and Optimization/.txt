@@ -1,1 +1,90 @@
+Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization/
+
+
+•	Practical aspects of deep learning – How to make our NN work well:
+o	Hyperparameter tuning 
+o	Setup your data
+o	Picking an optimization algorithm 
+•	Setting up our ML model application 
+o	Training dev test sets
+o	Our input data can be divided into sub-datas (allows you to iterate quicker)
+♣	Training set 
+♣	Hold out cross validation “development set” 
+•	Test different algorithms to see which one is doing better
+♣	Test set 
+•	Given final classifier, give an unbias estimate of how well you are doing 
+•	Not having a test set is ok 
+o	Previous era of machine learning ratios for input data
+♣	Input data from 100 -10,000
+♣	70/30% == train/test 
+♣	60/20/20% == train/holdout/test
+o	Today’s Big data era
+♣	Input data == 1,000,000 + 
+♣	98/1/1% == train/holdout/test 
+♣	99.5/0.4/0.1% ==train/holdout/test
+•	Applied ML is highly iterative process – Cycle through Idea  Code  Experiment 
+•	 Need to make many decisions including:
+o	# layers
+o	# hidden units
+o	learning rates
+o	activation functions 
+
+
+
+Bias and Variance 
+•	easy to learn, difficult to master 
+•	bias variance tradeoff 
+o	In DL, less of a “tradeoff”
+o	Increase bias reduce variance 
+o	Reduce bias increase variance 
+•	Examples
+o	High bias = underfittnig
+o	Just right = in between 
+o	High variance = overfitting
+•	Cat classification example
+o	Recognize cats in pictures
+♣	Y=1
+♣	Y=0 
+
+
+
+
+
+
+
+o	Look at the errors in your training sets . Does it have a bias or training problem?
+♣	Ex1
+•	Train set error 1%
+•	Dev set error 11% 
+•	Overfit the training set, not generalizing well 
+♣	Ex2
+•	Train set error 15%
+•	Dev set error 16% 
+•	Underfitting the training set, high bias, ex linear classifier 
+♣	Ex3
+•	Train set error 15%
+•	Dev set error 30% 
+•	High bias, high variance 
+
+
+•	Basic recipe for training a neural network 
+o	Does algorithm have High bias?
+♣	Look at training data performance 
+♣	It’s not fitting well
+♣	Try a bigger network 
+♣	Try training it longer 
+♣	Try more advanced optimization algorithms
+♣	Try a different NN architecture 
+o	Doe algorithm have variance problem?
+♣	Dev set performance 
+♣	Try getting more data
+♣	Try regularization 
+♣	Try a different NN architecture 
+
+Why regularization prevent overfitting?
+•	Implement regularization leads to variance reduction results
+•	Ex tanh activation function g(z)=tanh(z) 
+
+Debug gradient decent 
+-	Cost function decreases with every 
 
