@@ -36,7 +36,7 @@ Bias and Variance
 •	bias variance tradeoff 
 o	In DL, less of a “tradeoff”
 o	Increase bias reduce variance 
-o	Reduce bias increase variance 
+o	Reduce bias increase variance  
 •	Examples
 o	High bias = underfittnig
 o	Just right = in between 
