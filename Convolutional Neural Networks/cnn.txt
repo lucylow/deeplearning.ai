@@ -34,7 +34,7 @@ Week 1
 
 
 Week 2 Basics of NN programming 
-
+ 
     • Binary Classification 
     • Given M training examples
         ◦ for ___ in M training examples:
